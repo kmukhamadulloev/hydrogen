@@ -10,6 +10,7 @@ services:
       - 443:443/udp
     volumes:
       - ./volumes/caddy:/etc/caddy
+      - ./projects:/var/www
       - caddy-data:/data
       - caddy-config:/config
     depends_on:
