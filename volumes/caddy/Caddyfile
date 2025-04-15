@@ -7,7 +7,7 @@
 }
 
 k3i.pro {
-  root * /opt/repositories/pma
+  root * /var/www/public
   file_server
   php_fastcgi php:9000
 }
