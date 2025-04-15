@@ -10,7 +10,7 @@ services:
       - 443:443/udp
     volumes:
       - ./volumes/caddy:/etc/caddy
-      - ./projects/public:/var/www
+      - ./projects:/var/www
     depends_on:
       - php
     networks:
@@ -20,7 +20,7 @@ services:
     build: ./config/php
     volumes:
       - ./volumes/php:/etc/php
-      - ./projects/public:/var/www
+      - ./projects:/var/www
     networks:
       - hydrogen
   postgres:
