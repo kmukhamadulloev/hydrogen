@@ -1,5 +1,10 @@
 # php 8.1 image
-FROM php:8.4-fpm-alpine
+FROM php:8.4-fpm
+
+RUN groupadd -g 1000 myuser && \
+    useradd -u 1000 -g 1000 -s /bin/bash -m myuser && \
+    usermod -aG sudo myuser && \
+    echo 'myuser:mypass' | chpasswd
 
 # development packages
 RUN apt-get update && apt-get install -y \
