@@ -1,0 +1,10 @@
+{
+  email fuckyou@example.com
+  # acme_ca https://acme.zerossl.com/v2/DV90
+}
+
+phpmyadmin.localhost {
+  root * /opt/repositories/pma
+  file_server
+  php_fastcgi php:9000
+}
