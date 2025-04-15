@@ -1,5 +1,8 @@
 {
   email kmukhamadulloev@gmail.com
+  log {
+    level DEBUG
+  }
   # acme_ca https://acme.zerossl.com/v2/DV90
 }
 
