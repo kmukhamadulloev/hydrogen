@@ -40,5 +40,5 @@ networks:
     driver: bridge
 
 volumes:
-  - caddy-data
-  - caddy-config
+  caddy-data:
+  caddy-config:
