@@ -33,5 +33,5 @@ services:
       - ./volumes/postgres:/var/lib/postgresql
 
 networks:
-  app-network:
-    driver: bridge=
+  hydrogen:
+    driver: bridge
