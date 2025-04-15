@@ -1,9 +1,9 @@
 {
-  email fuckyou@example.com
+  email kmukhamadulloev@gmail.com
   # acme_ca https://acme.zerossl.com/v2/DV90
 }
 
-phpmyadmin.localhost {
+k3i.pro {
   root * /opt/repositories/pma
   file_server
   php_fastcgi php:9000
