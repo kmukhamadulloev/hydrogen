@@ -1,4 +1,4 @@
 .env
 projects
-!projects/public
+!projects/hydrofiler/*
 volumes/caddy/Caddyfile

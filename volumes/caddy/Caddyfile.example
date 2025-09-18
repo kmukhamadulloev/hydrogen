@@ -6,16 +6,17 @@
 #  acme_ca https://acme.zerossl.com/v2/DV90
 }
 
+# example of the settings for your local project
+# dont forget to add your project to hosts file
+hydrofiler.local {
+  tls internal
+  php_fastcgi php:9000
+  root * /var/www/hydrofiler
+  file_server
+}
+
 # settings for your global project
 # yourdomain.com {
-#  root * /var/www/<your-project>
-#  file_server
-#  php_fastcgi php:9000
-#}
-
-# dont forget to add your project to hosts file
-# yourproject.local {
-#  tls internal
 #  root * /var/www/<your-project>
 #  file_server
 #  php_fastcgi php:9000

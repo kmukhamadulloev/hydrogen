@@ -16,9 +16,13 @@ services:
     networks:
       - hydrogen
   php:
-    container_name: php
-    build: ./config/php
-    user: "${USERID}:${GROUPID}"
+    container_name: php84
+    build:
+      context: ./config/php
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    user: "${UID}:${GID}"
     volumes:
       - ./volumes/php:/etc/php
       - ./projects:/var/www
