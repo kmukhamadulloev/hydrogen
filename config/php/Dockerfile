@@ -1,8 +1,11 @@
 # php 8.1 image
 FROM php:8.4-fpm
 
-RUN groupadd -g 1000 myuser && \
-    useradd -u 1000 -g 1000 -s /bin/bash -m myuser && \
+ARG UID=1000
+ARG GID=1000
+
+RUN groupadd -g GID myuser && \
+    useradd -u UID -g GID -s /bin/bash -m myuser && \
     usermod -aG sudo myuser && \
     echo 'myuser:mypass' | chpasswd
 

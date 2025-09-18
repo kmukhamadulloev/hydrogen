@@ -18,6 +18,7 @@ services:
   php:
     container_name: php
     build: ./config/php
+    user: "${USERID}:${GROUPID}"
     volumes:
       - ./volumes/php:/etc/php
       - ./projects:/var/www
