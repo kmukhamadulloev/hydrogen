@@ -23,6 +23,8 @@ services:
         UID: ${UID}
         GID: ${GID}
     user: "${UID}:${GID}"
+    depends_on:
+      - postgres
     volumes:
       - ./volumes/php:/etc/php
       - ./projects:/var/www
@@ -32,12 +34,14 @@ services:
     container_name: postgres
     image: postgres:16-alpine
     ports:
-      - 127.0.0.1:5432:5432
+      - 5432:5432
     environment:
       - POSTGRES_USER=${POSTGRES_USERNAME}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - ./volumes/postgres:/var/lib/postgresql
+    networks:
+      - hydrogen
 
 networks:
   hydrogen:

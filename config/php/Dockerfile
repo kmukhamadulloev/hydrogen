@@ -12,26 +12,47 @@ RUN groupadd -g $GID myuser && \
 # development packages
 RUN apt-get update && apt-get install -y \
     git \
+    unzip \
+    vim \
+    curl \
+    zip \
     libbz2-dev \
     libcurl4-openssl-dev \
-    zlib1g-dev \
     libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     libicu-dev \
     libonig-dev \
     libpq-dev \
-    libzip-dev
+    libzip-dev \
+    libxml2-dev \
+    libxslt-dev \
+    libssl-dev \
+    libwebp-dev \
+    pkg-config \
+    supervisor \
+    cron \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # required php extensions
-RUN docker-php-ext-install \
-    bz2 \
-    intl \
-    iconv \
-    bcmath \
-    opcache \
-    calendar \
-    mbstring \
-    pdo \
-    zip
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp && \
+    docker-php-ext-install \
+        bcmath \
+        bz2 \
+        calendar \
+        exif \
+        gd \
+        iconv \
+        intl \
+        mbstring \
+        opcache \
+        pcntl \
+        pdo \
+        pdo_pgsql \
+        pgsql \
+        soap \
+        xsl \
+        zip
 
 # upload configuration
 RUN echo "file_uploads = On\n" \
