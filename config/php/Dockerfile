@@ -4,6 +4,9 @@ FROM php:8.4-fpm
 ARG UID=1000
 ARG GID=1000
 
+# development mode
+ARG DEV=true
+
 RUN groupadd -g $GID myuser && \
     useradd -u $UID -g $GID -s /bin/bash -m myuser && \
     usermod -aG sudo myuser && \
@@ -64,6 +67,12 @@ RUN echo "file_uploads = On\n" \
 
 # composer 2
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# laravel cli
+RUN if [ "$DEV" = "true" ] ; then \
+        su - myuser -c "composer global require laravel/installer" && \
+        echo 'PATH="/home/myuser/.config/composer/vendor/bin:${PATH}"' >> /home/myuser/.bashrc ; \
+    fi
 
 # xdebug installation and config
 RUN pecl install xdebug \

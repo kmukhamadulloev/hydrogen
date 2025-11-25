@@ -139,6 +139,7 @@ $files = get_files();
                                 <?php endif; ?>
                             </span>
                             <div class="file-actions">
+                                <a href="/storage/<?= urlencode($file) ?>" target="_blank" class="btn btn-sm btn-primary">Download</a>
                                 <?php if (!is_dir(get_file_path($file))): ?>
                                 <a href="?edit=<?= urlencode($file) ?>" class="btn btn-sm btn-outline-secondary">Edit</a>
                                 <?php endif; ?>
