@@ -1,4 +1,6 @@
 .env
 projects/*
 !projects/hydrofiler
+projects/hydrofiler/storage/*
+!project/hydrofiler/storage/hydrogen.png
 volumes/caddy/Caddyfile
